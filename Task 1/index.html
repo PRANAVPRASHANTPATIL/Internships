@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Webpage</title>
+    <style>
+        /* 🔹 General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+        }
+
+        /* 🔹 Header */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 🔹 Main Content */
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #f8f9fa;
+        }
+
+        p {
+            font-size: 18px;
+            color: #dcdcdc;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 18px;
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 🔹 Buttons */
+        .btn {
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-green {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-green:hover {
+            background: #218838;
+        }
+
+        .btn-blue {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-blue:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🔹 Header -->
+    <header>Welcome to My Webpage</header>
+
+    <!-- 🔹 Main Content -->
+    <div class="container">
+        <h1>My First Webpage</h1>
+        <p>This is a simple webpage that demonstrates basic HTML, CSS, and JavaScript.</p>
+
+        <!-- Link -->
+        <p>Visit my favorite website: <a href="https://www.example.com" target="_blank">Click Here</a></p>
+
+        <!-- Buttons -->
+        <button class="btn btn-green" onclick="showMessage()">Click Me</button>
+        <button class="btn btn-blue" onclick="sendNotification()">Send Notification</button>
+    </div>
+
+    <script>
+        // 🔹 Show alert message
+        function showMessage() {
+            alert("Hello! You clicked the button.");
+        }
+
+        // 🔹 Send browser notification
+        function sendNotification() {
+            if ("Notification" in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === "granted") {
+                        new Notification("Hello!", {
+                            body: "This is a basic notification from your webpage.",
+                            icon: "https://via.placeholder.com/50" // Placeholder icon
+                        });
+                    } else {
+                        alert("Notification permission denied.");
+                    }
+                });
+            } else {
+                alert("Your browser does not support notifications.");
+            }
+        }
+    </script>
+
+</body>
+</html>
